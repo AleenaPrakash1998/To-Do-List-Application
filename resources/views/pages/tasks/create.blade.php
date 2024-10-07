@@ -86,7 +86,7 @@
         </div>
     </form>
 
-    @include('pages.products._columns.modal.success-modal')
+    @include('pages.tasks._columns.modal.success-modal')
 @endsection
 
 @push('custom-scripts')

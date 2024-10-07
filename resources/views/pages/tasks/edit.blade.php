@@ -45,18 +45,31 @@
                         </div>
                         <div class="mb-3">
                             <label for="status" class="form-label">Status</label>
+{{--                            <div>--}}
+{{--                                <div class="form-check form-check-inline">--}}
+{{--                                    <input type="radio" id="pending" name="status" value="pending"--}}
+{{--                                           class="form-check-input" {{ old('status') == 'pending' ? 'checked' : '' }}>--}}
+{{--                                    <label for="active" class="form-check-label">Pending</label>--}}
+{{--                                </div>--}}
+{{--                                <div class="form-check form-check-inline">--}}
+{{--                                    <input type="radio" id="completed" name="status" value="completed"--}}
+{{--                                           class="form-check-input" {{ old('status') == 'completed' ? 'checked' : '' }}>--}}
+{{--                                    <label for="inactive" class="form-check-label">Completed</label>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
                             <div>
                                 <div class="form-check form-check-inline">
                                     <input type="radio" id="pending" name="status" value="pending"
-                                           class="form-check-input" {{ old('status') == 'pending' ? 'checked' : '' }}>
-                                    <label for="active" class="form-check-label">Pending</label>
+                                           class="form-check-input" {{ $task->status == 'pending' ? 'checked' : '' }}>
+                                    <label for="pending" class="form-check-label">Pending</label>
                                 </div>
                                 <div class="form-check form-check-inline">
                                     <input type="radio" id="completed" name="status" value="completed"
-                                           class="form-check-input" {{ old('status') == 'completed' ? 'checked' : '' }}>
-                                    <label for="inactive" class="form-check-label">Completed</label>
+                                           class="form-check-input" {{ $task->status == 'completed' ? 'checked' : '' }}>
+                                    <label for="completed" class="form-check-label">Completed</label>
                                 </div>
                             </div>
+
                             @error('status')
                             <div class="text-danger">{{ $message }}</div>
                             @enderror
@@ -89,7 +102,7 @@
         </div>
     </form>
 
-    @include('pages.products._columns.modal.update-success-modal')
+    @include('pages.tasks._columns.modal.update-success-modal')
 @endsection
 
 @push('custom-scripts')
